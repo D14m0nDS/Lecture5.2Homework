@@ -16,6 +16,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.tumba.animalsapp.models.AnimalBreed
 
+
+// The card for each breed of animal in the rows
 @Composable
 fun AnimalBreedCard(animalBreed: AnimalBreed) {
     Card(
@@ -30,7 +32,7 @@ fun AnimalBreedCard(animalBreed: AnimalBreed) {
                 modifier = Modifier.size(128.dp),
                 contentScale = ContentScale.Crop
             )
-            Text(text = animalBreed.name, style = MaterialTheme.typography.titleMedium)
+            Text(text = animalBreed.name, style = MaterialTheme.typography.titleMedium, color = Color.Black)
         }
     }
 }

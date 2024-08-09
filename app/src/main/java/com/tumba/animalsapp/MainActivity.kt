@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Column {
+                        // Two columns for the breeds of animals, one conteining all breeds and the other one containing the filtered breeds
                         AllBreedsRow()
                         FilteredBreedsRow()
                     }

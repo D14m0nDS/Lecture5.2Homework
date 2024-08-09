@@ -21,6 +21,8 @@ import com.tumba.animalsapp.models.DogBreed
 import com.tumba.animalsapp.R
 import com.tumba.animalsapp.models.CatBreed
 
+
+// Lists with dog and cat breeds
 val  dogBreeds = listOf(
     DogBreed("Golden Retriever", R.drawable.golden_retriever_dog),
     DogBreed("Husky", R.drawable.husky_dog),
@@ -40,7 +42,7 @@ val  catBreeds = listOf(
 
 val allBreeds = dogBreeds + catBreeds
 
-
+// First row with all breeds
 @Composable
 fun AllBreedsRow() {
     LazyRow(
@@ -53,16 +55,19 @@ fun AllBreedsRow() {
     )
 }
 
+// Second row with filters for dog and cat breeds
 @Composable
 fun FilteredBreedsRow() {
     var selectedCategory by remember { mutableStateOf("all") }
 
+    // Filter breeds based on the selected category
     val filteredBreeds = when (selectedCategory) {
         "dogs" -> dogBreeds
         "cats" -> catBreeds
         else -> allBreeds
     }
 
+    // Display the filtered breeds + the toggle buttons on top
     Column {
         Row(modifier = Modifier.padding(8.dp)) {
             ToggleButton("Dogs", selectedCategory == "dogs") {
@@ -82,12 +87,13 @@ fun FilteredBreedsRow() {
     }
 }
 
+// The button component for filtering breeds
 @Composable
 fun ToggleButton(text: String, isSelected: Boolean, onClick: () -> Unit) {
     Button(
         onClick = { onClick() },
         colors = ButtonDefaults.buttonColors(
-            containerColor = if (isSelected) Color.Red else Color.Gray
+            containerColor = if (isSelected) Color.Blue else Color.Gray
         )
     ) {
         Text(text = text, color = Color.White)
